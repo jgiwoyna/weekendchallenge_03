@@ -7,7 +7,6 @@ var equation = {
 var result;
 
 $(document).ready(function(){
-  console.log('this works');
 
   $('span').on('click', 'div', addToEquation)
 
@@ -26,14 +25,12 @@ function addToEquation() {
       appendToDom(equation.num1 + equation.operator);
       break;
     }
-    console.log(equation);
   } else if(equation.operator != "") {
       switch ($(this).attr('class')) {
         case "number":
           if (validateDecimal(equation.num2) || $(this).attr('id') != "decimal"){
             equation.num2 += $(this).text();
             appendToDom(equation.num1 + equation.operator + equation.num2);
-              console.log(equation);
           }
           break;
         case "equals":
@@ -52,7 +49,6 @@ function validateDecimal(number) {
 
 function appendToDom(x) {
   $("#output").val(x);
-  console.log("ball");
 }
 
 function sendEquation() {
@@ -61,7 +57,6 @@ function sendEquation() {
     url: '/math',
     data: equation,
     success: function() {
-      console.log("data!!!!!");
       router();
     }
   });
@@ -75,7 +70,7 @@ function router() {
     case "-":
       getSubtractAnswer();
       break;
-    case "x":
+    case "*":
       getMultiplyAnswer();
       break;
     case "÷":
@@ -90,7 +85,6 @@ function getAddAnswer() {
     url: '/math/add',
     success: function(results) {
       result = results;
-      console.log(result);
       appendToDom(result.answer);
     }
   });
@@ -102,7 +96,6 @@ function getSubtractAnswer() {
     url: '/math/subtract',
     success: function(result) {
       result = results;
-      console.log(result);
       appendToDom(result.answer);
     }
   });
@@ -114,7 +107,6 @@ function getMultiplyAnswer () {
     url: '/math/multiply',
     success: function (results) {
       result = results;
-      console.log(result);
       appendToDom(result.answer);
     }
   });
@@ -126,10 +118,13 @@ function getDivideAnswer () {
     url: '/math/divide',
     success: function (results) {
       result = results;
-      console.log(result);
       appendToDom(result.answer);
     }
   });
 }
+
+$('#clear').on('click', function (x){
+  $('#output').empty(x);
+});
 
 });

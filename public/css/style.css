@@ -6,11 +6,16 @@ span {
   display: flex;
 }
 
+#outputBox {
+  padding: 20px 0 20px 0;
+  margin-left: 75px;
+}
+
 span > div {
   font-family: helvetica;
-  height: 70px;
-  width: 70px;
+  height: 80px;
+  width: 80px;
   border: 1px solid black;
   text-align: center;
-  font-size: 32px;
+  font-size: 36px;
 }
