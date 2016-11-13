@@ -1,0 +1,16 @@
+h1 {
+  font-family: helvetica;
+}
+
+span {
+  display: flex;
+}
+
+span > div {
+  font-family: helvetica;
+  height: 70px;
+  width: 70px;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 32px;
+}
