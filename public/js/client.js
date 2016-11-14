@@ -1,6 +1,6 @@
 var equation = {
-  num1: "",
-  num2: "",
+  val1: "",
+  val2: "",
   operator: ""
 };
 
@@ -8,29 +8,29 @@ var result;
 
 $(document).ready(function(){
 
-  $('span').on('click', 'div', addToEquation)
+  $('span').on('click', 'div', addToProblem)
 
-function addToEquation() {
+function addToProblem() {
 
   if(equation.operator == "") {
   switch ($(this).attr('class')) {
     case "number":
-      if (validateDecimal(equation.num1) || $(this).attr('id') != "decimal"){
-        equation.num1 += $(this).text();
-        appendToDom(equation.num1);
+      if (checkDecimal(equation.val1) || $(this).attr('id') != "decimal"){
+        equation.val1 += $(this).text();
+        appendToDom(equation.val1);
       }
       break;
     case "operator":
       equation.operator = $(this).attr('id');
-      appendToDom(equation.num1 + equation.operator);
+      appendToDom(equation.val1 + equation.operator);
       break;
     }
   } else if(equation.operator != "") {
       switch ($(this).attr('class')) {
         case "number":
-          if (validateDecimal(equation.num2) || $(this).attr('id') != "decimal"){
-            equation.num2 += $(this).text();
-            appendToDom(equation.num1 + equation.operator + equation.num2);
+          if (checkDecimal(equation.val2) || $(this).attr('id') != "decimal"){
+            equation.val2 += $(this).text();
+            appendToDom(equation.val1 + equation.operator + equation.val2);
           }
           break;
         case "equals":
@@ -41,7 +41,7 @@ function addToEquation() {
 }
 
 
-function validateDecimal(number) {
+function checkDecimal(number) {
   if(number.includes(".") == false){
     return true;
   }
@@ -123,8 +123,6 @@ function getDivideAnswer () {
   });
 }
 
-$('#clear').on('click', function (x){
-  $('#output').empty(x);
-});
+
 
 });

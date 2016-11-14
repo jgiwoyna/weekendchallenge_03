@@ -1,7 +1,3 @@
-h1 {
-  font-family: helvetica;
-}
-
 span {
   display: flex;
 }
@@ -11,11 +7,17 @@ span {
   margin-left: 75px;
 }
 
+#calc {
+  margin: auto;
+  width: 50%;
+}
+
 span > div {
+  background-color: gray;
   font-family: helvetica;
   height: 80px;
   width: 80px;
-  border: 1px solid black;
+  border: 1px dotted black;
   text-align: center;
   font-size: 36px;
 }

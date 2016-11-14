@@ -10,19 +10,19 @@ router.post('/', function(req, res){
 });
 
 router.get('/add', function (req, res){
-  result.answer = parseFloat(equation.num1) + parseFloat(equation.num2);
+  result.answer = parseFloat(equation.val1) + parseFloat(equation.val2);
   res.send(result);
 });
 router.get('/subtract', function (req, res){
-  result.answer = parseFloat(equation.num1) - parseFloat(equation.num2);
+  result.answer = parseFloat(equation.val1) - parseFloat(equation.val2);
   res.send(result);
 });
 router.get('/multiply', function (req, res){
-  result.answer = parseFloat(equation.num1) * parseFloat(equation.num2);
+  result.answer = parseFloat(equation.val1) * parseFloat(equation.val2);
   res.send(result);
 });
 router.get('/divide', function (req, res){
-  result.answer = parseFloat(equation.num1) / parseFloat(equation.num2);
+  result.answer = parseFloat(equation.val1) / parseFloat(equation.val2);
   res.send(result);
 });
 
